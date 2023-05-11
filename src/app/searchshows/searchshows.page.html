@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button pos="Start"/>
+    <ion-title>Search Shows</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Search Shows</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item color="medium">
+    <!-- Input Box for searching shows, ngModel used to take input into var. ion-button triggers search method -->
+    <ion-input id="showsearch" placeholder="Enter show name" [(ngModel)]="inputVar"></ion-input>
+    <ion-button color="danger" (click)="EnterSearch(inputVar)">Search</ion-button>
+  </ion-item>
+  <ion-item>
+    <!-- Storage Plugin takes last search done and when button clicked, saves for displaying later -->
+    <ion-card-subtitle>Last Search: {{storedSearch}} </ion-card-subtitle> <!-- Saved search string displayed here -->
+    <ion-button color="danger" (click)="EnterSearch(storedSearch)" size="small" fill="clear"> Search Saved</ion-button> <!-- searches saved instead -->
+  </ion-item>
+  <ion-button color="danger" (click)="saveSearch()" size="small">Save</ion-button>
+
+  <!-- Ion-card Display -->
+  <ion-card *ngFor="let s of showData" color="light">
+    <br>
+    <img [src]="s.show.image.medium" alt="Show Poster" />
+    <ion-card-header>
+    <ion-card-title>{{s.show.name}}</ion-card-title>
+    <ion-card-subtitle>Premiered: {{s.show.premiered}} <br>Ended: {{s.show.ended}}</ion-card-subtitle>
+    <ion-card-subtitle>Status: {{s.show.status}}</ion-card-subtitle>
+    <ion-card-subtitle>Episode Runtime: {{s.show.averageRuntime}} mins</ion-card-subtitle>
+    <ion-card-subtitle>Genres: {{s.show.genres}}</ion-card-subtitle>
+    <ion-card-subtitle>IMDB Rating: {{s.show.rating.average}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Grid Display -->
+  <!--<ion-grid>
+    <ion-row no-padding>
+      <ion-col col-4 *ngFor="let s of showData">
+        <img [src]="s.show.image.medium" alt="Show Poster" />
+        <ion-card-header>
+        <ion-card-title>{{s.show.name}}</ion-card-title>
+        <ion-card-subtitle>Premiered: {{s.show.premiered}} <br>Ended: {{s.show.ended}}</ion-card-subtitle>
+        <ion-card-subtitle>Status: {{s.show.status}}</ion-card-subtitle>
+        <ion-card-subtitle>Episode Runtime: {{s.show.averageRuntime}} mins</ion-card-subtitle>
+        <ion-card-subtitle>Genres: {{s.show.genres}}</ion-card-subtitle>
+        <ion-card-subtitle>IMDB Rating: {{s.show.rating.average}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-col>
+    </ion-row>
+</ion-grid>-->
+<br>
+</ion-content>

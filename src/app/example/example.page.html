@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button pos="Start"/>
+    <ion-title>Example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Example</ion-title> 
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Page just for displaying an example of what a list of shows looks like -->
+  <ion-card *ngFor="let s of showData" color="light">
+    <br>
+    <img [src]="s.show.image.medium" alt="Show Poster" />
+    <ion-card-header>
+    <ion-card-title>{{s.show.name}}</ion-card-title>
+    <ion-card-subtitle>Premiered: {{s.show.premiered}} <br>Ended: {{s.show.ended}}</ion-card-subtitle>
+    <ion-card-subtitle>Status: {{s.show.status}}</ion-card-subtitle>
+    <ion-card-subtitle>Episode Runtime: {{s.show.averageRuntime}} mins</ion-card-subtitle>
+    <ion-card-subtitle>Genres: {{s.show.genres}}</ion-card-subtitle>
+    <ion-card-subtitle>IMDB Rating: {{s.show.rating.average}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

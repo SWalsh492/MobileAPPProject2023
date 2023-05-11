@@ -11,6 +11,27 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'deviceinfo',
+    loadChildren: () => import('./deviceinfo/deviceinfo.module').then( m => m.DeviceinfoPageModule)
+  },
+  {
+    path: 'searchshows',
+    loadChildren: () => import('./searchshows/searchshows.module').then( m => m.SearchshowsPageModule)
+  },
+  {
+    path: 'mostpopular',
+    loadChildren: () => import('./mostpopular/mostpopular.module').then( m => m.MostpopularPageModule)
+  },
+  {
+    path: 'toprated',
+    loadChildren: () => import('./toprated/toprated.module').then( m => m.TopratedPageModule)
+  },  {
+    path: 'example',
+    loadChildren: () => import('./example/example.module').then( m => m.ExamplePageModule)
+  },
+
+
 ];
 
 @NgModule({

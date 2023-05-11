@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button pos="Start"/>
+    <ion-title>Top Rated</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Top Rated</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card-subtitle>Index</ion-card-subtitle> <!-- Index of top rated shows (according to IMDB: https://www.imdb.com/chart/tvmeter/), buttons will search for show and display -->
+  <ion-grid>
+    <ion-row no-padding>
+      <ion-col col-4>
+        <ion-button size="small" color="medium" (click)="GetBreakingBad()">1: Breaking Bad</ion-button><ion-button size="small" color="medium" (click)="GetTheWire()">2: The Wire</ion-button>
+        <ion-button size="small" color="medium" (click)="GetGameOfThrones()">3: Game Of Thrones</ion-button><ion-button size="small" color="medium" (click)="GetTheSopranos()">4: The Sopranos</ion-button>
+        <ion-button size="small" color="medium" (click)="GetAttackOnTitan()">5: Attack On Titan</ion-button><ion-button size="small" color="medium" (click)="GetTheOffice()">6: The Office</ion-button>
+        <ion-button size="small" color="medium" (click)="GetBetterCallSaul()">7: Better Call Saul</ion-button><ion-button size="small" color="medium" (click)="GetTrueDetective()">8: True Detective</ion-button>
+        <ion-button size="small" color="medium" (click)="GetFriends()">9: Friends</ion-button><ion-button size="small" color="medium" (click)="GetFargo()">10: Fargo</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <!-- Ion-card used to display each show -->
+  <ion-card *ngFor="let s of showData" color="light">
+    <br>
+    <img [src]="s.show.image.medium" alt="Show Poster" />
+    <ion-card-header>
+    <ion-card-title>{{s.show.name}}</ion-card-title>
+    <ion-card-subtitle>Premiered: {{s.show.premiered}} <br>Ended: {{s.show.ended}}</ion-card-subtitle>
+    <ion-card-subtitle>Status: {{s.show.status}}</ion-card-subtitle>
+    <ion-card-subtitle>Episode Runtime: {{s.show.averageRuntime}} mins</ion-card-subtitle>
+    <ion-card-subtitle>Genres: {{s.show.genres}}</ion-card-subtitle>
+    <ion-card-subtitle>IMDB Rating: {{s.show.rating.average}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

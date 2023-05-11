@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <h2>Showcase</h2>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,11 +9,27 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Showcase</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
- <h3>Welcome to Mobile Apps Starter project 2023</h3>
+    <!-- Introduction -->
+ <h3>Welcome to <i>Showcase</i></h3>
+ <ion-card-subtitle>An Ionic web-application for searching details about shows</ion-card-subtitle>
+ <br>
+ <!-- Buttons for Navigation -->
+ <ion-button [routerLink]="['/searchshows']" color="danger">Search Shows</ion-button>
+ <ion-button [routerLink]="['/mostpopular']" color="success">Most Popular</ion-button>
+ <ion-button [routerLink]="['/toprated']" color="medium">Top Rated</ion-button>
+ <ion-button [routerLink]="['/example']" color="dark">Example</ion-button>
+ 
+ 
+  <!-- While it didn't meet my standards in the end, I attempted to use a deviceInfo plugin
+  <ion-button [routerLink]="['/deviceinfo']">Device Info</ion-button>-->
+
+ <br><br><br><br>
+ <!-- Ionic Browser Plugin -->
+ <ion-button (click)="openBrowser()" size="small" fill="clear">API gathered from here</ion-button>
   </div>
 </ion-content>
